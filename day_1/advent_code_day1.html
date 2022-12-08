@@ -1,0 +1,29 @@
+<script>
+let pre = document.querySelector('pre');
+let html = pre.innerHTML
+let data = html.split('\n').join(',').split(',,')
+let caloriesArray = []
+let elfCalories = []
+let sum
+
+// part1
+data.map((calories, key) => {
+    caloriesArray = calories.split(',')
+    sum = 0
+    caloriesArray.map((calorie) => {
+        if (!isNaN(parseInt(calorie))) {
+            sum += parseInt(calorie)
+        }
+    })
+    elfCalories.push(sum)
+})
+
+console.log(Math.max.apply(null, elfCalories))
+
+// part2
+let threeElf = (elfCalories.sort((a, b) => b - a)).slice(0, 3)
+for (let i = 0; i < threeElf.length; i++) {
+    totalCalories += threeElf[i]
+}
+console.log(totalCalories)
+</script>
