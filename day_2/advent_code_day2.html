@@ -2542,6 +2542,8 @@ A Y
     let roundOpponentChoice, roundMyChoice
     let totalPoint = 0
 
+    // part 1
+    
     data.map((round) => {
         if (round !== '') {
             let roundPoint = 0
@@ -2573,6 +2575,10 @@ A Y
             totalPoint += roundPoint
         }
     })
+    
+    console.log(totalPoint)
+    
+    // part 2
 
     const shape = {rock: 1, paper: 2, scissors: 3}
     const outcome = {win: 6, draw: 3, lose: 0}
