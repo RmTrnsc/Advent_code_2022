@@ -1015,9 +1015,15 @@
     const data = document.querySelector('pre').textContent
     const format_data = data.split('\n')
 
-    //part 1
 
-    let first_element, second_element, first_prev_element, second_prev_element, first_next_element, second_next_element, count_pairs = 0
+    let first_element,
+        second_element,
+        first_prev_element,
+        second_prev_element,
+        first_next_element,
+        second_next_element,
+        count_part1_pairs = 0,
+        count_part2_pairs = 0
 
     for (let i = 0; i < format_data.length - 1; i++) {
         let list = []
@@ -1029,13 +1035,20 @@
         first_next_element = parseInt(second_element.split('-')[0])
         second_next_element = parseInt(second_element.split('-')[1])
 
-
         if (first_prev_element <= first_next_element && second_prev_element >= second_next_element || first_prev_element >= first_next_element && second_prev_element <= second_next_element) {
-            count_pairs++;
+            count_part1_pairs++;
+        }
+
+        if (first_prev_element <= second_next_element && second_prev_element >= first_next_element) {
+            count_part2_pairs++;
         }
     }
 
-    console.log(count_pairs)
+    //part 1
+    console.log(count_part1_pairs)
+
+    //part 2
+    console.log(count_part2_pairs)
 
 </script>
 </html>
